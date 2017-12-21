@@ -12,6 +12,7 @@ This section describes the hardware and software needed for this workshop, and h
 ## Install Docker
 
 Docker runs natively on Mac, Windows and Linux. This lab will use https://www.docker.com/community-edition#/download (Docker Community Edition - CE). Download the Docker CE edition for your machine from the https://store.docker.com/search?type=edition&offering=community (Docker Store).
+If you are going to use an EC2 instance with Amazon Linux, follow this instructions: http://docs.aws.amazon.com/es_es/AmazonECS/latest/developerguide/docker-basics.html
 
 > NOTE: Docker CE requires a fairly recent operating system version. If your machine does not meet the requirements, then you need to install https://www.docker.com/products/docker-toolbox (Docker Toolbox).
 
@@ -20,6 +21,7 @@ Docker runs natively on Mac, Windows and Linux. This lab will use https://www.do
 During this workshop we will interact with some AWS API's. Having the latest version of the AWS CLI in your computer is appropriated.
 
 Instructions to install the AWS CLI are available here: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
+If you are going to use an EC2 instance with Amazon Linux, the AWS CLI is already installed. Configure it with "aws configure" or set a role for the Ec2 instance.
 
 ## Install git
 

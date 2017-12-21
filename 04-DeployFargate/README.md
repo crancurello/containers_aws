@@ -1,19 +1,19 @@
 # Deploying an application with AWS Fargate
 
-![aws fargate logo](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/aws_fargate_logo.png)
+![aws fargate logo](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/aws_fargate_logo.png)
 
 
 **Quick jump:**
 
-* [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#1-tutorial-overview)
-* [2. Provisioning the infrastructure](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#2-provisioning-the-infrastructure)
-* [3. Building the Docker images](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#3-building-the-docker-images)
-* [4. Pushing the images to ECR](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#4-pushing-the-images-to-ecr)
-* [5. Creating the Cluster](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#5-creating-the-cluster)
-* [6. Creating the Task Definition](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#6-creating-the-task-definition)
-* [7. Deploying the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#7-deploying-the-application)
-* [8. Acessing the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#8-acessing-the-application)
-* [9. Conclusion](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#9-conclusion)
+* [1. Tutorial overview](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#1-tutorial-overview)
+* [2. Provisioning the infrastructure](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#2-provisioning-the-infrastructure)
+* [3. Building the Docker images](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#3-building-the-docker-images)
+* [4. Pushing the images to ECR](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#4-pushing-the-images-to-ecr)
+* [5. Creating the Cluster](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#5-creating-the-cluster)
+* [6. Creating the Task Definition](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#6-creating-the-task-definition)
+* [7. Deploying the application](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#7-deploying-the-application)
+* [8. Acessing the application](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#8-acessing-the-application)
+* [9. Conclusion](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate#9-conclusion)
 
 
 ## 1. Tutorial overview
@@ -38,7 +38,7 @@ In the project folder, go to the `cloudformation` directory and run the followin
 
 You can check the lts-scorekeep status in the CloudFormation service screen:
 
-![cloudformation provisioning](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/cloudformation_creation.png)
+![cloudformation provisioning](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/cloudformation_creation.png)
 
 After the stack status changes to CREATE_COMPLETE, you should have: 5 DynamoDB tables (game, move, session, state and user), a CloudWatch LogGroup and a SNS topic created.
 
@@ -70,24 +70,24 @@ Go to the IAM console, select **Policies** and click in **Create policy**. Selec
         ]
     }
 
-![create taks policy](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_policy_creation.png)
+![create taks policy](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_policy_creation.png)
 
 
 Click in **Review policy**, name your policy `lts-scorekeep-policy` and click in **Create policy**:
 
-![finish policy creation ](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/finish_policy_creation.png)
+![finish policy creation ](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/finish_policy_creation.png)
 
 Now, go to the IAM console, select **Roles** in the left corner of the page and click in **Create role**. In this screen, select **EC2 Container Service** and under **use case** select **EC2 Container Service Task** and click in **Next: Permissions**:
 
-![create taks role](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_role_creation.png)
+![create taks role](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_role_creation.png)
 
 In the permissions screen, select the recently created `lts-scorekeep-policy` and click in **Next: Review**
 
-![associate role policy](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/associate_role_policy.png)
+![associate role policy](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/associate_role_policy.png)
 
 Name your Role `lts-scorekeep-role` and click in **Create role**:
 
-![role creation](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/role_creation.png)
+![role creation](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/role_creation.png)
 
 
 
@@ -115,14 +115,14 @@ After the image is built, you can test locally. In order to execute this test, u
 
 Then, using your browser, access the url http://localhost. You will see the scorekeep frontend interface:
 
-![scorekeep front local](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-frontend-local.png)
+![scorekeep front local](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/scorekeep-frontend-local.png)
 
 
 ## 4. Pushing the images to ECR
 
 After creating your images, go to the ECS console, under **Repositories**, and create a new repository called `scorekeep-api`:
 
-![scorekeep api repository](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-api-repository.png)
+![scorekeep api repository](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/scorekeep-api-repository.png)
 
 Use the `aws-ecr` api call to get your repository credentials and execute your authentication, running the command (don't forget the apostrophes):
 
@@ -167,96 +167,96 @@ Let's create a new cluster to deploy our containers. In your AWS account dashboa
 
 Click in the button **Create cluster** and in the following screen select the **Networking only (Powered by AWS Fargate)** cluster template:
 
-![cluster template](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/cluster_template.png)
+![cluster template](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/cluster_template.png)
 
 In the **Cluster configuration** screen, add the name `lts-scorekeep-app` and click in create:
 
-![cluster configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/cluster_configuration.png)
+![cluster configuration](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/cluster_configuration.png)
 
 ## 6. Creating the Task Definition
 
 
 To create a Task Definition, choose **Task Definitions** at left side of the ECS console menu. Choose **Create new Task Definition**. Select `FARGATE` as the *Launch type compatibility*:
 
-![type compatibility](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_compatibility.png)
+![type compatibility](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_compatibility.png)
 
 Click in **Next Step** and name your task **lts-scorekeep-app**. In the **Task Role**, select the `lts-scorekeep-role` role that we created before and in the **Task execution role** select `ecsTaskExecutionRole`:
 
-![task configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_configuration.png)
+![task configuration](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_configuration.png)
 
 In **Task size** select `2GB` for **Task memory (GB)** and `1vCPU` for **Task CPU (vCPU)** and click in the **Add container** button:
 
-![task size](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_size.png)
+![task size](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_size.png)
 
 Let's first add our API container. In **Container name** insert `scorekeep-api` and add the URL for the scorekeep-api from your ECR registry with the tag `latest`. Set the memory **Soft limit** to `512` and `5000` for the **Port mappings**:
 
-![scorekeep-api standard configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/api_standard_configurations.png)
+![scorekeep-api standard configurations](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/api_standard_configurations.png)
 
 Under **Advanced container configuration** add `768` for **CPU Units** and create a new environment variable called `NOTIFICATION_TOPIC` where the value must be the ARN of the SNS Topic created by the CloudFormation template:
 
-![scorekeep-api advanced configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/api_advanced_configurations.png)
+![scorekeep-api advanced configurations](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/api_advanced_configurations.png)
 
 We still need to add the frontend container to this task. Click again in **Add container** to add the scorekeep-frontend container.
 
 In **Container name** insert `scorekeep-frontend`, in **Image** paste the URL of your scorekeep-frontend ECR respoitory with the tag `:latest` and set `512` for **Soft limit**. This container exposes the port `8080`, so add it to the **Port mappings** field. Under **Advanced container configuration** add `256` for **CPU Units** and click in **Add**:
 
-![scorekeep-frontend configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/frontend_configurations.png)
+![scorekeep-frontend configurations](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/frontend_configurations.png)
 
 After adding both containers, click in **Create**:
 
-![creating task](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/creating_task.png)
+![creating task](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/creating_task.png)
 
 ## 7. Deploying the application
 
 In the ECS console, click in **Clusters** and them click in the **lts-scorekeep-app** cluster that we created earlier. Under the **Services** tab, click in **Create**:
 
-![service create](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/service_create.png)
+![service create](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/service_create.png)
 
 Select **FARGATE** as the **Launch type** and select the **Task definition** `lts-scorekeep-app:1` that we just created. Under **Platform version** select `LATEST`. Note that the cluster `lts-scorekeep-app` will be automatically selected under **Cluster**. Don't change it. Add `lts-scorekeep-app` in **Service name** and set the number of tasks to `1`, then click in **Next step**:
 
-![configure service](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_service.png)
+![configure service](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/configure_service.png)
 
 Select the VPC where you want to run your containers and the public subnets that you want to use. Click in **Edit** to edit your security group rules and select `ENABLED` for Auto-assign public IP::
 
-![configure network](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_network.png)
+![configure network](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/configure_network.png)
 
 Change the type of the rule to `Custom TCP` and add `8080` in **Port range**. This is because the frontend container is going to expose the port 8080 instead of 80. Click in **Save**:
 
-![configure security group](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_security_group.png)
+![configure security group](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/configure_security_group.png)
 
 In the **Set Auto Scaling (optional)** screen, just click in **Next step** and finally, click in **Create service** on the **Review** screen:
 
-![service review](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/service_review.png)
+![service review](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/service_review.png)
 
 ## 8. Acessing the application
 
 After creating your service, an ENI will be provisioned. Usually this step takes about 30s to 1min to be completed. Click in Service and then click in the task. If everything goes as planned, you should see both of your containers with status as Provisioning, then it should change to Pending till finally reach the Running status. When finished, you will be able to see the number of running tasks in the `lts-scorekeep-app` Cluster screen:
 
-![running tasks](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/running_tasks.png)
+![running tasks](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/running_tasks.png)
 
 Click in **Tasks** and them click in the Task ID. You will be redirected to a screen that shows all the infomation about your running task:
 
-![task information](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_information.png)
+![task information](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/task_information.png)
 
 In this screen, click in the **ENI Id**. You will be redirected to the ENI screen. Here, get the **IPv4 Public IP**. This is the IP Address of your application:
 
-![eni information](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/eni_information.png)
+![eni information](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/eni_information.png)
 
 Open a Firefox browser and access http://YOURPUBLICIP:8080. You should be able to access and interact with your application:
 
-![application access](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/application_access.png)
+![application access](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/application_access.png)
 
 > This application was tested in Firefox and Google Chrome browsers. Unfortunately, at this moment, we were able to make it work only for Firefox. CORS issues!
 
 Click in **Create** and then give a name to your game. Select **Tic Tac Toe** under **Rules** and then click in **Create**. A new button **Play** button will appear. Click in it and enjoy your game:
 
-![game creation](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/game_creation.png)
+![game creation](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/game_creation.png)
 
 After starting your game and making a few movements in it, you should be able to see some information your DynamoDB tables.
 
-![gameplay](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/gameplay.png)
+![gameplay](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/gameplay.png)
 
-![dynamodb items](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/dynamodb_items.png)
+![dynamodb items](https://github.com/crancurello/containers_aws/blob/master/04-DeployFargate/images/dynamodb_items.png)
 
 ## 9. Conclusion
 

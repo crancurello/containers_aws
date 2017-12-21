@@ -21,3 +21,5 @@ Si estás utilizando una laptop con windows, te recomendamos mejor encender una 
 * [4. Ejecutar un contenedor con AWS Fargate](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate)
 
 * [5. Ejecutar un contenedor en un cluster de Kubernetes con KOPS](https://github.com/crancurello/containers_aws/tree/master/05-DeployKubernetes)
+
+* Lab alternativo: [Trabajando con ECS y ECR](https://qwiklabs.com/focuses/3456)

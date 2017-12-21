@@ -23,7 +23,7 @@ During this workshop we will interact with some AWS API's. Having the latest ver
 
 Instructions to install the AWS CLI are available here: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
-If you are going to use an EC2 instance with Amazon Linux, the AWS CLI is already installed. Configure it with "aws configure" or set a role for the Ec2 instance: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+If you are going to use an EC2 instance with Amazon Linux, the AWS CLI is already installed.
 
 ## Install git
 

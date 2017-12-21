@@ -1,4 +1,4 @@
-![lts logo](https://github.com/bemer/lts-workshop/blob/master/images/lts_logo.png)
+![logo](https://github.com/crancurello/containers_aws/images/logo.png)
 
 # Bienvenido al workshop de containers en AWS
 

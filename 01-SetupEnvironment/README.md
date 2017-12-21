@@ -27,9 +27,9 @@ If you are going to use an EC2 instance with Amazon Linux, the AWS CLI is alread
 
 ## Install git
 
-Sometimes will be easier if you just clone this repo, instead of copying the files. Having the git installed is not a mandatory requisite, but it may help you.
-
 Download and install here: https://git-scm.com/downloads
-If you are going to use an EC2 instance with Amaszon Linux, then you can just issue the following command: sudo yum install git -y
+
+If you are going to use an EC2 instance with Amazon Linux, then you can just issue the following command: 
+sudo yum install git -y
 
 You can have more information about git here: https://git-scm.com/book/en/v1/Getting-Started

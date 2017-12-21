@@ -1,3 +1,4 @@
+f45c89c2d4e9:containers_aws jesushum$
 ![logo](https://github.com/crancurello/containers_aws/blob/master/images/logo.png)
 
 # Bienvenido al workshop de containers en AWS
@@ -6,26 +7,16 @@
 
 We will walk you through the very basics of containers: from installing and configuring Docker in your machine, running containers locally, till finally deploying them in AWS.
 
-## 2) If you are using a Windows machine (srsly?)
+## 2) If you are using a Windows machine, we strongly recommend you to spin up a Linux EC2 instance. None of these labs were even tested in Windows environments.
 
-We strongly recommend you to spin up a Linux EC2 instance. None of these labs were even tested in Windows environments.
+## 3) Please, run this lab in the exactly order as follows:
 
-## 3) This is not everything we have for today. There's more!
+* [1. Setup Environments](https://github.com/crancurello/containers_aws/tree/master/01-SetupEnvironment)
 
-You know that thing called Kubernetes? I bet you kow. Be ready, because there's also an amazing lab waiting for you. This lab will start at 3PM and it's going to be nuts!
+* [2. Creating Your Docker Image](https://github.com/crancurello/containers_aws/tree/master/02-CreatingDockerImage)
 
-## 4) Enough of jibber jabber...
+* [3. Running An ECS Cluster](https://github.com/crancurello/containers_aws/tree/master/03-DeployEcsCluster)
 
-Go sharp your Container skills and take over the world.
+* [4. Deploying An Application with AWS Fargate](https://github.com/crancurello/containers_aws/tree/master/04-DeployFargate)
 
-## 5) Please, run this lab in the exactly order as follows:
-
-* [1. Setup Environments](https://github.com/bemer/lts-workshop/tree/master/01-SetupEnvironment)
-
-* [2. Creating Your Docker Image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage)
-
-* [3. Running An ECS Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster)
-
-* [4. Deploying An Application with AWS Fargate](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate)
-
-* [5. Deploying a Kubernetes Cluster with KOPS](https://github.com/bemer/lts-workshop/tree/master/05-DeployKubernetes)
+* [5. Deploying a Kubernetes Cluster with KOPS](https://github.com/crancurello/containers_aws/tree/master/05-DeployKubernetes)

@@ -1,8 +1,6 @@
 ![lts logo](https://github.com/bemer/lts-workshop/blob/master/images/lts_logo.png)
 
-# Welcome to the LTS Container Track
-
-Hello and welcome to the Latam Tech Summit 2017 - Container Track day! This is obviously the most awaited day of the event. We know it... So here are a few things that you should know before you start:
+# Bienvenido al workshop de containers en AWS
 
 ## 1) It's all about containers!
 

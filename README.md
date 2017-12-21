@@ -1,4 +1,4 @@
-![logo](https://github.com/crancurello/containers_aws/images/logo.png)
+![logo](https://github.com/crancurello/containers_aws/blob/master/images/logo.png)
 
 # Bienvenido al workshop de containers en AWS
 

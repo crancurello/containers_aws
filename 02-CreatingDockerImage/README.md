@@ -169,9 +169,11 @@ If you are unable to login to ECR, check your IAM user group permissions.
 
 ## 5. Creating the container registries with ECR
 
+To create a repository, navigate to the ECS console, and select **Repositories**.  
+
 Before we can build and push our images, we need somewhere to push them to.  In this case, we're going to create two repositories in [ECR](https://aws.amazon.com/ecr/).
 
-To create a repository, navigate to the ECS console, and select **Repositories**.  From there, choose **Create repository**.
+From there, choose **Create repository**.
 
 Name your first repository **lts-demo-app**:
 

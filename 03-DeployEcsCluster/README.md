@@ -30,11 +30,11 @@ Once you've signed into your AWS account, navigate to the [ECS console](https://
 
 ![clusters screen](https://github.com/crancurello/containers_aws/blob/master/03-DeployEcsCluster/images/clusters_screen.png)
 
-Let's them create our first ECS Cluster. Click in the button **Create cluster** and in the following screen select the **EC2 Linux + Networking** cluster template:
+Let's then create our first ECS Cluster. Click in the button **Create cluster** and in the following screen select the **EC2 Linux + Networking** cluster template:
 
 ![cluster template](https://github.com/crancurello/containers_aws/blob/master/03-DeployEcsCluster/images/cluster_template.png)
 
-You will them be asked to input information about your new cluster. Fill the fields in the *Configure cluster* screen and note that here you can create a new VPC or select a existing one. We recommend you to create a new VPC using the wizard, so it is going to be easy clean up your account after the event.
+You will then be asked to input information about your new cluster. Fill the fields in the *Configure cluster* screen and note that here you can create a new VPC or select a existing one. We recommend you to create a new VPC using the wizard, so it is going to be easy clean up your account after the event.
 
 Remember to select your keypair, so you will be able to access the EC2 instances in your cluster in order to perform any kind of troubleshooting later.
 
@@ -46,7 +46,7 @@ When the creation process finishes, you will see the following screen:
 
 ![cluster created](https://github.com/crancurello/containers_aws/blob/master/03-DeployEcsCluster/images/cluster_created.png)
 
-You can them click in the button **View Cluster** to see your cluster.
+You can then click in the button **View Cluster** to see your cluster.
 
 ## 3. Creating the ALB
 

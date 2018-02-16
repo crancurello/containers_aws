@@ -58,6 +58,10 @@ aws ec2 describe-regions
 
 If you get any error message, please attach an role with admin policies to the cloud9 ec2 instance
 
+## Proceed to the next stage of the workshop:
+
+https://github.com/crancurello/containers_aws/tree/master/02-CreatingDockerImage
+
 ##########################################################################################
 ## IF USING YOUR OWN LAPTOP:
 ##########################################################################################
@@ -86,3 +90,8 @@ Instructions to install the AWS CLI are available here: http://docs.aws.amazon.c
 ## Install git
 
 Download and install here: https://git-scm.com/downloads
+
+## Proceed to the next stage of the workshop:
+
+https://github.com/crancurello/containers_aws/tree/master/02-CreatingDockerImage
+

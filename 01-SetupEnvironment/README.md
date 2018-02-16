@@ -2,22 +2,18 @@
 
 This section describes the hardware and software needed for this workshop, and how to configure them. This workshop is designed for a BYOL (Brying Your Own Laptop) style hands-on-lab.
 
-PLEASE SELECT VIRGINIA AS REGION !!
+PLEASE SELECT VIRGINIA AS REGION
 
-## Hardware & Software
+## Hardware & Software on your laptop
 
 - Memory: At least 4 GB+, strongly preferred 8 GB
 - Operating System: Mac OS X (10.10.3+), Windows 10 Pro+ 64-bit, Ubuntu 12+, CentOS 7+.
 
-> NOTE: An older version of the operating system may be used. The installation instructions would differ slightly in that case and are explained in the next section.
+> NOTE: An older version of the operating system may be used.
 
 ## Install Docker
 
 Docker runs natively on Mac, Windows and Linux. This lab will use https://www.docker.com/community-edition#/download (Docker Community Edition - CE). Download the Docker CE edition for your machine from the https://store.docker.com/search?type=edition&offering=community (Docker Store).
-
-If you are going to use an EC2 instance with Amazon Linux or a Cloud9 environment, follow this instructions: 
-Cloud9: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html
-EC2: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
 Install Docker: http://docs.aws.amazon.com/es_es/AmazonECS/latest/developerguide/docker-basics.html
 
@@ -29,13 +25,6 @@ During this workshop we will interact with some AWS API's. Having the latest ver
 
 Instructions to install the AWS CLI are available here: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
-If you are going to use an EC2 instance with Amazon Linux or a Cloud9 environment, the AWS CLI is already installed.
-
 ## Install git
 
 Download and install here: https://git-scm.com/downloads
-
-If you are going to use an EC2 instance with Amazon Linux or a Cloud9 environment, then you can just issue the following command: 
-sudo yum install git -y
-
-You can have more information about git here: https://git-scm.com/book/en/v1/Getting-Started

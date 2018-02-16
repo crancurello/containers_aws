@@ -3,7 +3,7 @@
 This section describes the hardware and software needed for this workshop, and how to configure them. This workshop is designed for a BYOL (Brying Your Own Laptop) style hands-on-lab.
 
 ##########################################################################################
-##IF USING A CLOUD9 ENVIRONMENT:
+## IF USING A CLOUD9 ENVIRONMENT:
 ##########################################################################################
 
 Using a Cloud9 environment allows you to interact directly with an cloud-native IDE
@@ -59,7 +59,7 @@ aws ec2 describe-regions
 If you get any error message, please attach an role with admin policies to the cloud9 ec2 instance
 
 ##########################################################################################
-##IF USING YOUR OWN LAPTOP:
+## IF USING YOUR OWN LAPTOP:
 ##########################################################################################
 
 ## Hardware & Software

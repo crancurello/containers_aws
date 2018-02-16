@@ -2,9 +2,9 @@
 
 This section describes the hardware and software needed for this workshop, and how to configure them. This workshop is designed for a BYOL (Brying Your Own Laptop) style hands-on-lab.
 
-############################################################################################
+##########################################################################################
 IF USING A CLOUD9 ENVIRONMENT:
-############################################################################################
+##########################################################################################
 
 Using a Cloud9 environment allows you to interact directly with an cloud-native IDE
 
@@ -37,9 +37,9 @@ issue the following command:
 sudo yum install git -y
 You can have more information about git here: https://git-scm.com/book/en/v1/Getting-Started
 
-############################################################################################
+##########################################################################################
 IF USING YOUR OWN LAPTOP:
-############################################################################################
+##########################################################################################
 
 ## Hardware & Software
 

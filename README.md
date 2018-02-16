@@ -6,11 +6,7 @@
 
 Te iremos guiando sobre lo básico en containers: desde instalar y configurar docker en tu laptop, ejecutar contenedores de forma local, hasta implementarlos en AWS.
 
-## 2) Configuración inicial
-
-Si estás utilizando una laptop con windows, te recomendamos mejor encender una instancia EC2 en AWS con Amazon Linux. Estos labs no fueron probados en ambientes windows.
-
-## 3) Por favor, ejecuta este workshop en el siguiente orden:
+## 2) Por favor, ejecuta este workshop en el siguiente orden:
 
 * [1. Configurar ambiente inicial](https://github.com/crancurello/containers_aws/tree/master/01-SetupEnvironment)
 

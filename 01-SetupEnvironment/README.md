@@ -1,4 +1,4 @@
-# Setup Environments
+# Setup Environment
 
 This section describes the hardware and software needed for this workshop, and how to configure them. This workshop is designed for a BYOL (Brying Your Own Laptop) style hands-on-lab.
 
@@ -63,7 +63,7 @@ If you get any error message, please attach an role with admin policies to the c
 https://github.com/crancurello/containers_aws/tree/master/02-CreatingDockerImage
 
 ##########################################################################################
-## IF USING YOUR OWN LAPTOP:
+## IF USING YOUR OWN LAPTOP AS YOUR ENVIRONMENT:
 ##########################################################################################
 
 ## Hardware & Software

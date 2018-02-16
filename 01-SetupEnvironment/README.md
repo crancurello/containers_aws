@@ -37,14 +37,26 @@ Once you are on the cloud9 environment, verify the following:
 ## Install Docker
 
 issue "docker --version"
+
 if no output is detected, please refer to this guide to install it:
+
 http://docs.aws.amazon.com/es_es/AmazonECS/latest/developerguide/docker-basics.html
 
 ## Install git
 
 issue the following command: 
+
 sudo yum install git -y
+
 You can have more information about git here: https://git-scm.com/book/en/v1/Getting-Started
+
+## Verify AWS Credentials
+
+issue the following command:
+
+aws ec2 describe-regions
+
+If you get any error message, please attach an role with admin policies to the cloud9 ec2 instance
 
 ##########################################################################################
 IF USING YOUR OWN LAPTOP:

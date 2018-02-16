@@ -2,9 +2,46 @@
 
 This section describes the hardware and software needed for this workshop, and how to configure them. This workshop is designed for a BYOL (Brying Your Own Laptop) style hands-on-lab.
 
-PLEASE SELECT VIRGINIA AS REGION
+################################################################################################
+IF USING A CLOUD9 ENVIRONMENT:
+################################################################################################
 
-## Hardware & Software on your laptop
+Using a Cloud9 environment allows you to interact directly with an cloud-native IDE
+
+## Creating a Cloud9 environment
+
+Sign in on your AWS Console
+Select Virigina as REGION
+Choose Cloud9 from the Services menu
+Clic "Create environment"
+Give the environment a name (any name you want)
+On Environment Type, select "Create a new instance for environment"
+On Instance Type, select t2.small
+Clic "Next" 
+Clic "Create environment"
+You can have more information about launching a Cloud9 IDE on AWS here: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html
+
+The creation of a cloud9 environment can take up to 5 minutes. Please wait
+
+Once you are on the cloud9 environment, verify the following:
+
+## Install Docker
+
+issue "docker --version"
+if no output is detected, please refer to this guide to install it:
+http://docs.aws.amazon.com/es_es/AmazonECS/latest/developerguide/docker-basics.html
+
+## Install git
+
+issue the following command: 
+sudo yum install git -y
+You can have more information about git here: https://git-scm.com/book/en/v1/Getting-Started
+
+################################################################################################
+IF USING YOUR OWN LAPTOP:
+################################################################################################
+
+## Hardware & Software
 
 - Memory: At least 4 GB+, strongly preferred 8 GB
 - Operating System: Mac OS X (10.10.3+), Windows 10 Pro+ 64-bit, Ubuntu 12+, CentOS 7+.

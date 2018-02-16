@@ -11,14 +11,23 @@ Using a Cloud9 environment allows you to interact directly with an cloud-native 
 ## Creating a Cloud9 environment
 
 Sign in on your AWS Console
+
 Select Virigina as REGION
+
 Choose Cloud9 from the Services menu
+
 Clic "Create environment"
+
 Give the environment a name (any name you want)
+
 On Environment Type, select "Create a new instance for environment"
+
 On Instance Type, select t2.small
+
 Clic "Next" 
+
 Clic "Create environment"
+
 You can have more information about launching a Cloud9 IDE on AWS here: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html
 
 The creation of a cloud9 environment can take up to 5 minutes. Please wait

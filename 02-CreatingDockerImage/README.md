@@ -16,11 +16,7 @@
 
 This tutorial is going to drive you through the process of creating your first Docker image, running a Docker image locally and pushing it to a image repository.
 
-In this tutorial, we assume that you completed the "[Setup Environment](https://github.com/crancurello/containers_aws/tree/master/01-SetupEnvironment)" tutorial and:
-
-* [Have a working AWS account](<https://aws.amazon.com>)
-* [Have a working Github account](<https://www.github.com>)
-* [Have the AWS CLI installed](<http://docs.aws.amazon.com/cli/latest/userguide/installing.html>)
+In this tutorial, we assume that you completed the "[Setup Environment](https://github.com/crancurello/containers_aws/tree/master/01-SetupEnvironment)" tutorial
 
 To check if you have the AWS CLI installed and configured:
 
@@ -91,12 +87,20 @@ This should return a list of all the currently running containers.  In this exam
     CONTAINER ID        IMAGE                 COMMAND             CREATED              STATUS              PORTS                              NAMES
     fa922a2376d5        lts-demo-app:latest   "python app.py"     About a minute ago   Up About a minute   3000/tcp,    0.0.0.0:3000->3000/tcp   clever_shockley   
 
-To test the actual container output, access the following URL in your web browser:
+To test the actual container output, try to access the app using one of the following resources:
+
+
+access the following URL in your web browser if using your own laptop to run the container:
 
      http://localhost:3000/app
+     
+access the following URL in your web browser if using an EC2 instance or a cloud9 environment (remember to review your EC2 instance´s Security Group to have http open to your laptop´s public IP):
+
+     http://EC2_PUBLIC_IP:3000/app
 
 
-## 3. Setting up the IAM roles
+## 3. Setting up the IAM roles (if using a Cloud9 as environment, no need to do this part)
+
 
 In order to work with the AWS CLI, you'll need an IAM role with the proper permissions set up.  To do this, we'll create both an IAM Group, and an IAM user.
 
@@ -113,7 +117,7 @@ If you are creating a new user, name it to something like "**lts-workshop-user**
 
 When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
 
-## 4. Configuring the AWS CLI
+## 4. Configuring the AWS CLI (if using a Cloud9 as environment, no need to do this part)
 
 If you've never configured the AWS CLI, the easiest way is by running:
 
@@ -138,7 +142,23 @@ If you already have a profile setup with the AWS CLI, you can also add a new pro
     aws_secret_access_key = CAFESECRETACCESSKEYEXAMPLE002
 
 
-You can test that your IAM user has the correct permissions, and that your CLI is setup to connect to your AWS account by running the command to obtain an ECR authentication token.  This will allow us to pull our registries in the next step:
+## 5. Creating the container registries with ECR
+
+Before we can build and push our images, we need somewhere to push them to.  In this case, we're going to create two repositories in [ECR](https://aws.amazon.com/ecr/).
+
+To create a repository, navigate to the ECS console, and select **Repositories**.  
+
+From there, choose **Create repository**.
+
+Name your first repository **lts-demo-app**:
+
+![create ecr repository](https://github.com/crancurello/containers_aws/blob/master/02-CreatingDockerImage/images/creating_repository.png)
+
+Once you've created the repository, it will display the push commands.  Take note of these, as you'll need them in the next step. 
+
+Log into your repository by issuing the commands shown on the screen:
+
+This will allow us to pull our registries in the next step:
 
     $ aws ecr get-login --region us-east-1 --no-include-email --profile lts-workshop
 
@@ -155,31 +175,14 @@ This should output something like:
     https://<account_id>.dkr.ecr.us-east-1.amazonaws.com
 
 
-> Specify if the '-e' flag should be included in the 'docker login' command. The '-e' option has been deprecated and is removed in docker version 17.06 and later. You must specify --no-include-email if you're using docker version 17.06 or later. The default behavior is to include the '-e' flag in the 'docker login' output.
-
-
-To login to ECR, copy and paste that output or just run `` `aws ecr get-login --region us-east-1 --no-include-email --profile lts-workshop` `` which will tell your shell to execute the output of that command.  That should return something like:
+Copy and paste that output so you can log in.  That should return something like:
 
     WARNING! Using --password via the CLI is insecure. Use --password-stdin.
     Login Succeeded
 
-Note:  if you are running Ubuntu, it is possible that you will need to preface your Docker commands with `sudo`.  For more information on this, see the [Docker documentation](https://docs.docker.com/engine/installation/linux/ubuntu/).
+If you are unable to login to ECR, review the permssions on your IAM role for your EC2 instance.
 
-If you are unable to login to ECR, check your IAM user group permissions.
-
-## 5. Creating the container registries with ECR
-
-To create a repository, navigate to the ECS console, and select **Repositories**.  
-
-Before we can build and push our images, we need somewhere to push them to.  In this case, we're going to create two repositories in [ECR](https://aws.amazon.com/ecr/).
-
-From there, choose **Create repository**.
-
-Name your first repository **lts-demo-app**:
-
-![create ecr repository](https://github.com/crancurello/containers_aws/blob/master/02-CreatingDockerImage/images/creating_repository.png)
-
-Once you've created the repository, it will display the push commands.  Take note of these, as you'll need them in the next step.  The push commands should like something like this:
+The push commands should like something like this:
 
 ![push commands](https://github.com/crancurello/containers_aws/blob/master/02-CreatingDockerImage/images/push_commands.png)
 
